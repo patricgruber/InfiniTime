@@ -138,12 +138,12 @@ void HeartRateTask::HandleWakeUp() {
 
 void HeartRateTask::HandleStartMeasurement(int* lastBpm) {
   switch (state) {
-    case States::ScreenOffAndStopped:
     case States::ScreenOnAndStopped:
       state = States::ScreenOnAndMeasuring;
       *lastBpm = 0;
       StartMeasurement();
       break;
+    case States::ScreenOffAndStopped:
     case States::ScreenOnAndMeasuring:
     case States::ScreenOffAndMeasuring:
     case States::ScreenOffAndWaiting:
@@ -160,9 +160,6 @@ void HeartRateTask::HandleStopMeasurement() {
       break;
     case States::ScreenOffAndMeasuring:
     case States::ScreenOffAndWaiting:
-      state = States::ScreenOffAndStopped;
-      StopMeasurement();
-      break;
     case States::ScreenOnAndStopped:
     case States::ScreenOffAndStopped:
       // shouldn't happen -> ignore
