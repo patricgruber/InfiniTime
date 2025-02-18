@@ -102,12 +102,8 @@ void HeartRateTask::HandleGoToSleep() {
       state = States::ScreenOffAndStopped;
       break;
     case States::ScreenOnAndMeasuring:
-      if (IsBackgroundMeasurementActivated()) {
-        state = States::ScreenOffAndMeasuring;
-      } else {
-        state = States::ScreenOffAndWaiting;
-        StopMeasurement();
-      }
+      state = States::ScreenOffAndWaiting;
+      StopMeasurement();
       break;
     case States::ScreenOffAndStopped:
     case States::ScreenOffAndWaiting:

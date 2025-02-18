@@ -44,17 +44,17 @@
    │                │                        │       │                  │
 ┌──┴────────────────▼─────┐                  │    ┌──┴──────────────────▼───┐
 │                         │                  │    │                         │
-│   ScreenOffAndStopped   │                  │    │  ScreenOffAndMeasuring  │
+│   ScreenOffAndStopped   │                  │    │   ScreenOffAndWating    │
 │                         │                  │    │                         │
-└─────────────────────────┘                  │    └───▲──────────────────┬──┘
+└─────────────────────────┘                  │    └───┬──────────────────▲──┘
                                              │        │                  │
                                              │     Waited           Got sensor
                                              │    interval             data
                                              │      time                 │
                                              │        │                  │
-                                          WakeUp  ┌───┴──────────────────▼──┐
+                                          WakeUp  ┌───▼──────────────────┴──┐
                                              │    │                         │
-                                             └────┤   ScreenOffAndWaiting   │
+                                             └────┤  ScreenOffAndMeasuring  │
                                                   │                         │
                                                   └─────────────────────────┘
  */
