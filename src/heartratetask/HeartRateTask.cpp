@@ -87,7 +87,11 @@ void HeartRateTask::StartMeasurement() {
   heartRateSensor.Enable();
   ppg.Reset(true);
   vTaskDelay(100);
-  measurementStart = xTaskGetTickCount();
+
+  if (state == States::ScreenOffAndMeasuring) {
+    // only set the start timestamp when the screen is off
+    measurementStart = xTaskGetTickCount();
+  }
 }
 
 void HeartRateTask::StopMeasurement() {
